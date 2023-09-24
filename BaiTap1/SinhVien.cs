@@ -109,7 +109,7 @@ namespace BaiTap1
         public void Nhap()
         {
             Console.Write("Nhap ma sinh vien: ");
-            maSo = Console.ReadLine();
+            maSo = Console.ReadLine();         
             Console.Write("Nhap ten: ");
             hoTen = Console.ReadLine();
             Console.Write("Nhap chuyen nganh: ");
@@ -165,7 +165,6 @@ namespace BaiTap1
             {
                 Console.WriteLine("Diem gioi !");
             }
-        }
-        
+        }      
     }
 }

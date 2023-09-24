@@ -20,7 +20,8 @@ namespace BaiTap1
             Console.Write("Nhap so luong sinh vien: ");
             int n = int.Parse(Console.ReadLine());
             a = new SinhVien[n];
-          
+
+            int vt = 0;
             for (int i = 0; i < a.Length; i++)
             {
                 Console.WriteLine($"Nhap thong tin cho sinh vien thu {i + 1}: ");
@@ -28,14 +29,22 @@ namespace BaiTap1
                 sv.Nhap();
                 a[i] = sv;
 
-                //string msx;
-                //msx = Console.ReadLine();
-                //int vt;
-                //vt = int.Parse(Console.ReadLine());
-                //TonTai(msx, vt);
-
-                Console.WriteLine();
-            }            
+                //Gọi phương thức kiểm tra mã số sinh viên đã tồn tại chưa ?
+                do
+                {
+                    if (TonTai(sv.maSo, vt))
+                    {
+                        Console.WriteLine("Ma so sinh vien da ton tai. Moi ban nhap lai !!");
+                        sv.Nhap();
+                    }
+                }
+                while(TonTai(sv.maSo, vt));
+                
+                a[vt] = sv;
+                vt++;
+                Console.WriteLine();               
+            }
+            
         }
 
         //Xuất
@@ -43,31 +52,24 @@ namespace BaiTap1
         {
             for (int i = 0; i < a.Length; i++)
             {               
-                SinhVien sinhVien = a[i];
+                SinhVien sv = a[i];
                 Console.WriteLine($"Sinh vien thu {i + 1}: ");
-                sinhVien.Xuat();
-                sinhVien.getloai();
+                sv.Xuat();
+                sv.getloai();
                 
 
                 Console.WriteLine();
             }
         }
 
-        //Kiểm tra
+        //Kiểm tra mã số sinh viên đã tồn tại chưa ?
         public bool TonTai(string msx, int vt)
-        {
-            Console.Write("Kiem tra ma so sinh vien: ");
-            vt = int.Parse(Console.ReadLine());
+        {            
             for (int i = 0; i < vt; i++)
             {
                 if (a[i].maSo.CompareTo(msx) == 0)
-                {
-                    Console.WriteLine("Ma so sinh vien vua nhap ton tai trong danh sach !");
+                {                    
                     return true;
-                }
-                else
-                {
-                    Console.WriteLine("Ma so sinh vien vua nhap khong 2ton tai trong danh sach !");
                 }
             }
             return false;
