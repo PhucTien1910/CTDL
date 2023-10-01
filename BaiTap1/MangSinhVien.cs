@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -74,6 +75,28 @@ namespace BaiTap1
             }
             return false;
         }
+       
+        //Sắp xếp tên sinh viên theo thứ tự tăng dần
+        public void SapXepHoTen()
+        {
+            for(int i = 0; i < a.Length - 1; i++)
+            {
+                int minIndex = i;
 
+                //Tìm sinh viên có họ tên nhỏ nhất trong danh sách sinh viên
+                for(int j = i + 1; j < a.Length; j++)
+                {
+                    if (string.Compare(a[j].gethoTen(), a[minIndex].gethoTen()) < 0)
+                    {
+                        minIndex = j;
+                    }
+                }
+
+                //Hoán đổi vị trí
+                SinhVien temp = a[i];
+                a[i] = a[minIndex];
+                a[minIndex] = temp;
+            }
+        }
     } 
 }

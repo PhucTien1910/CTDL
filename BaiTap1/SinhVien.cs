@@ -27,11 +27,11 @@ namespace BaiTap1
         {
             maSo = newmaSo;
         }
-        private string gethoTen()
+        public string gethoTen()
         {
             return hoTen;
         }
-        private void sethoTen(string newhoTen)
+        public void sethoTen(string newhoTen)
         {
             hoTen = newhoTen;
         }

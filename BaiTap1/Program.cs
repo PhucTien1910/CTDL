@@ -31,6 +31,9 @@ namespace BaiTap1
             dssv.Nhap();
             Console.WriteLine("Danh sach sinh vien: ");
             dssv.Xuat();
+            Console.WriteLine("Danh sach sinh vien sau khi duoc sap xep theo ten: ");
+            dssv.SapXepHoTen();
+            dssv.Xuat();
 
         }
         static void Main(string[] args)

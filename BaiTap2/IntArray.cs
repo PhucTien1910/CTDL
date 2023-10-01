@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Runtime.Remoting.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -30,10 +31,10 @@ namespace BaiTap2
                 arr[i] = r.Next(1, 200);
             }
         }
-        public IntArray(int[] arr) 
+        public IntArray(int[] arr)
         {
-            this.arr = new int [arr.Length];
-            for(int i = 0; i < arr.Length; i++)
+            this.arr = new int[arr.Length];
+            for (int i = 0; i < arr.Length; i++)
             {
                 this.arr[i] = arr[i];
             }
@@ -41,9 +42,9 @@ namespace BaiTap2
         public IntArray(IntArray obj) { }
 
         //Kiểm tra
-        public bool KiemTraKT(int n )
+        public bool KiemTraKT(int n)
         {
-            if( n > 0 && n < 1000000 )
+            if (n > 0 && n < 1000000)
                 return true;
             else
                 return false;
@@ -58,15 +59,28 @@ namespace BaiTap2
             arr = new int[n];
 
             //Nhập mảng
-            for(int i = 0; i < arr.Length; i++)
+            for (int i = 0; i < arr.Length; i++)
             {
                 Console.Write("arr[{0}]= ", i);
                 arr[i] = int.Parse(Console.ReadLine());
-            }           
+            }
+        }
+       
+        public void Nhap1()
+        {
+            int t;
+            t= int.Parse(Console.ReadLine());
+            arr = new int[t];
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                Console.Write("arr[{0}]: ", i);
+                arr[i] = int.Parse(Console.ReadLine());
+            }
         }
 
-        //Luồng BinarySearch
-        public void Nhap1()
+        //Luồng QuickSort
+        public void Nhap2()
         {
             for (int i = 0; i < arr.Length; i++)
             {
@@ -77,18 +91,18 @@ namespace BaiTap2
 
         public void Xuat()
         {
-            for(int i = 0; i < arr.Length; i++)
+            for (int i = 0; i < arr.Length; i++)
             {
                 Console.Write(arr[i] + " ");
             }
-            Console.WriteLine();             
+            Console.WriteLine();
         }
 
         //Tìm kiếm tuần tự 
         public int LinearSearch(int x)
         {
             int n = arr.Length;
-            for(int i = 0; i < n; i++)
+            for (int i = 0; i < n; i++)
             {
                 if (arr[i] == x)
                 {
@@ -116,9 +130,16 @@ namespace BaiTap2
             }
             return -1;
         }
-        
+
+        //Biến tạm
+        public void Swap(ref int a, ref int b)
+        {
+            int temp = a;
+            a = b;
+            b = temp;
+        }
         //InterChangeSort
-        public void InterChangSort()
+        public void InterChangeSort()
         {          
             for(int i = 0; i < arr.Length - 1; i++)
             {
@@ -126,28 +147,98 @@ namespace BaiTap2
                 {
                     if (arr[i] > arr[j])
                     {
-                        int temp = arr[i];
-                        arr[i] = arr[j];
-                        arr[j] = temp;
+                        Swap(ref arr[i], ref arr[j]);
                     }                   
                 }
             }
         }
-        
-        //BubbleSort
+
+        //BubbleSort từ trái->phải
         public void BubbleSort()
         {
-            for(int i = 0; i < arr.Length - 1; i++)
+            for (int i = 0; i < arr.Length - 1; i++)
             {
-                for(int j = 0; j <arr.Length - i - 1; j++)
+                for (int j = 0; j < arr.Length - i - 1; j++)
                 {
                     if (arr[j] > arr[j + 1])
                     {
-                        int temp = arr[j];
-                        arr[j] = arr[j+1];
-                        arr[j+1] = temp;
+                        Swap(ref arr[i], ref arr[j + 1]);
                     }
                 }
+            }
+        }
+
+        //BubbleSort từ phải sang trái 
+        public void BubbleSort1()
+        {
+            for(int i = 0; i < arr.Length - 1; i++)
+            {
+                for(int j = arr.Length - 1; j > i; j--)
+                {
+                    if (arr[j] < arr[j-1])
+                    {
+                        Swap(ref arr[j], ref arr[j - 1]);
+                    }
+                }
+            }
+        }
+        
+        //SelectionSort
+        public void SelectionSort()
+        {
+            for(int i = 0; i < arr.Length - 1; i++)
+            {
+                int min_pos = i;
+                for(int j = i + 1; j < arr.Length; j++)
+                {
+                    if (arr[j] < arr[min_pos])
+                    {
+                        min_pos = j;
+                    }
+                }
+                Swap(ref arr[i], ref arr[min_pos]);
+            }
+        }
+
+        //InsertionSort
+        public void InsertionSort()
+        {
+            for(int i = 1; i < arr.Length; i++)
+            {
+                int x = arr[i];
+                int pos = i - 1;
+                while (pos >= 0 && x < arr[pos])
+                {
+                    arr[pos + 1] = arr[pos];
+                    pos--;
+                }
+                arr[pos + 1] = x;
+            }   
+        }
+
+        //QuickSort
+        public int Partition(int left, int right)
+        {
+            int pivot = arr[right];
+            int i = left - 1;
+            for(int j = left; j < right; j++)
+            {
+                if (arr[j] <= pivot)
+                {
+                    i++;
+                    Swap(ref arr[j], ref arr[i]);
+                }
+            }            
+            Swap(ref arr[i + 1], ref arr[right]);
+            return i + 1;
+        }
+        public void QuickSort(int left, int right)
+        {
+            if(left < right)
+            {
+                int q = Partition(left, right);
+                QuickSort(left, q - 1);
+                QuickSort(q + 1, right);
             }
         }
     }

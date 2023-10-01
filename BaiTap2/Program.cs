@@ -59,11 +59,10 @@ namespace BaiTap2
         {
             Console.Write("Nhap so luong phan tu trong mang: ");
 
-            int t, x, kq;
-            t = int.Parse(Console.ReadLine());
-            IntArray objB = new IntArray(t);
+            int x, kq;           
+            IntArray objB = new IntArray();
             
-            Console.WriteLine("Cac phan tu: ");
+            //Console.WriteLine("Cac phan tu: ");
             objB.Nhap1();
 
             //Tìm x
@@ -80,6 +79,76 @@ namespace BaiTap2
                 Console.WriteLine("Co {0} o vi tri thu {1}", x, kq);
             }
         }
+        static void TestInterChangeSort()
+        {
+            Console.Write("Nhap so luong phan tu trong mang(InterchangeSort): ");
+            IntArray objC = new IntArray();
+            objC.Nhap1();
+
+            Console.WriteLine("Gia tri cua mang: ");
+            objC.Xuat();
+
+            Console.WriteLine("Mang sau khi duoc sap xep la: ");
+            objC.InterChangeSort();
+            objC.Xuat();
+        }
+        static void TestBubbleSort()
+        {
+            Console.Write("Nhap so luong phan tu trong mang(BubbleSort): ");
+            IntArray objF = new IntArray();
+            objF.Nhap1();
+
+            Console.WriteLine("Gia tri cua mang: ");
+            objF.Xuat();
+
+            Console.WriteLine("Mang sau khi duoc sap xep la: ");
+            objF.BubbleSort();
+            objF.BubbleSort1();
+            objF.Xuat();
+        }
+        static void TestSelectionSort()
+        {
+            Console.Write("Nhap so luong phan tu trong mang(SelectionSort): ");
+            IntArray objD = new IntArray();
+            objD.Nhap1();
+
+            Console.WriteLine("Gia tri cua mang: ");
+            objD.Xuat();
+
+            Console.WriteLine("Mang sau khi duoc sap xep la: ");
+            objD.SelectionSort();
+            objD.Xuat();
+        }
+        static void TestInsertionSort()
+        {
+            Console.Write("Nhap so luong phan tu trong mang(InsertionSort): ");
+            IntArray objE = new IntArray();
+            objE.Nhap1();
+
+            Console.WriteLine("Gia tri cua mang: ");
+            objE.Xuat();
+
+            Console.WriteLine("Mang sau khi duoc sap xep la: ");
+            objE.InsertionSort();
+            objE.Xuat();
+        }
+        static void TestQuickSort()
+        {
+            Console.Write("Nhap so luong phan tu trong mang(QuickSort): ");
+            int t;
+            t = int.Parse(Console.ReadLine());
+            IntArray objF = new IntArray(t);
+
+            Console.WriteLine("Cac phan tu: ");
+            objF.Nhap2();
+
+            Console.WriteLine("Gia tri mang la: ");
+            objF.Xuat();
+
+            Console.WriteLine("Gia tri mang sau khi sap xep la: ");
+            objF.QuickSort(0, t - 1);
+            objF.Xuat();
+        }
         static void Main(string[] args)
         {
             //TestConstructor1();
@@ -87,9 +156,13 @@ namespace BaiTap2
             //TestConstructor3();
 
             //TestLinearSearch();
-            TestBinarySearch();
-            
+            //TestBinarySearch();
 
+            TestInterChangeSort();
+            TestBubbleSort();
+            TestSelectionSort();
+            TestInsertionSort();
+            TestQuickSort();
             Console.ReadKey();
         }
     }

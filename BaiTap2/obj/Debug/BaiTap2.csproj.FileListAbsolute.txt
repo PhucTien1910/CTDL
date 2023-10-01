@@ -5,3 +5,10 @@ D:\Phuc Tien\CTDL&GT TH\Again OOP\THCTDLGT_HoVaTenSV\BaiTap2\obj\Debug\BaiTap2.c
 D:\Phuc Tien\CTDL&GT TH\Again OOP\THCTDLGT_HoVaTenSV\BaiTap2\obj\Debug\BaiTap2.csproj.CoreCompileInputs.cache
 D:\Phuc Tien\CTDL&GT TH\Again OOP\THCTDLGT_HoVaTenSV\BaiTap2\obj\Debug\BaiTap2.exe
 D:\Phuc Tien\CTDL&GT TH\Again OOP\THCTDLGT_HoVaTenSV\BaiTap2\obj\Debug\BaiTap2.pdb
+D:\Phuc Tien\CTDL&GT TH\OOP Again\CTDL\BaiTap2\bin\Debug\BaiTap2.exe.config
+D:\Phuc Tien\CTDL&GT TH\OOP Again\CTDL\BaiTap2\bin\Debug\BaiTap2.exe
+D:\Phuc Tien\CTDL&GT TH\OOP Again\CTDL\BaiTap2\bin\Debug\BaiTap2.pdb
+D:\Phuc Tien\CTDL&GT TH\OOP Again\CTDL\BaiTap2\obj\Debug\BaiTap2.csproj.AssemblyReference.cache
+D:\Phuc Tien\CTDL&GT TH\OOP Again\CTDL\BaiTap2\obj\Debug\BaiTap2.csproj.CoreCompileInputs.cache
+D:\Phuc Tien\CTDL&GT TH\OOP Again\CTDL\BaiTap2\obj\Debug\BaiTap2.exe
+D:\Phuc Tien\CTDL&GT TH\OOP Again\CTDL\BaiTap2\obj\Debug\BaiTap2.pdb
